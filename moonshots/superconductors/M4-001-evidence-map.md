@@ -92,111 +92,111 @@ Why it matters: unlike megabar superhydrides, the predicted synthesis pressure i
 Next cheapest discriminating work:
 
 - independent re-computation with a materially different first-principles workflow;
-+- calculate decomposition/metastability barriers and finite-temperature survival, not only phonons/Tc;
-+- only after independent theory agreement should synthesis planning become active.
-+
-+Primary source: Dangić et al., Computational Materials Today (2025), DOI `10.1016/j.commt.2025.100043`.
-+
-+### M4-C005 — Mg2XH6 (X = Rh, Ir, Pd, Pt) hydride family
-+
-+**Predicted ambient-pressure Tc:** roughly **45–80 K**, with higher values proposed under suitable doping  
-+**Evidence:** high-throughput + first-principles prediction; no experimental superconductivity counted  
-+**Critical limitation:** synthesis/thermodynamic accessibility of high-Tc phases  
-+**Status:** **WATCH THEORY FAMILY**
-+
-+Primary source: npj Computational Materials (2024), DOI `10.1038/s41524-024-01214-9`.
-+
-+### M4-C006 — thermodynamically stable GNoME hydrides
-+
-+**Purpose:** stability control, not temperature leader  
-+**2026 result:** systematic search of stable cubic hydrides found modest Tc values; the strongest candidate, LiZrH6Ru, falls dramatically below the ~100 K metastable predictions when treated with more demanding Coulomb calculations  
-+**Status:** **ACTIVE NEGATIVE/TRADE-OFF CONTROL**
-+
-+Why it matters: the dataset strengthens the working hypothesis that **high conventional Tc at ambient pressure is entangled with metastability**, so searching only the equilibrium convex hull may systematically miss the interesting region.
-+
-+Primary source: Sanna et al., Communications Physics (2026), DOI `10.1038/s42005-026-02552-4`.
-+
-+## High-pressure source states — not ambient-pressure successes
-+
-+### M4-R001 — LaH10
-+
-+**Observed Tc:** ~**250 K** near **170 GPa**  
-+**Status:** **SOURCE-STATE RESERVOIR, NOT AN AMBIENT CANDIDATE RESULT**
-+
-+Why it matters: it proves that conventional electron-phonon systems can reach near-room-temperature Tc, but pressure removal/stability is the unsolved problem.
-+
-+Primary source: Drozdov et al., Nature (2019), DOI `10.1038/s41586-019-1201-8`.
-+
-+### M4-R002 — H3S
-+
-+**Observed Tc:** **203 K** near **155 GPa**  
-+**Evidence:** zero resistance, field-dependent transition, isotope effect, and magnetic-susceptibility measurements at the superconducting transition; later diffraction work characterized the superconducting H3S phase.  
-+**Status:** **SOURCE-STATE RESERVOIR, NOT AN AMBIENT CANDIDATE RESULT**
-+
-+Primary superconductivity source: Drozdov et al., Nature (2015), DOI `10.1038/nature14964`.  
-+Structure/mechanism source: Nature (2016), DOI `10.1038/nature17175`.
-+
-+## Negative controls / failed-claim registry
-+
-+These stay in the map permanently. Deletion would create survivorship bias.
-+
-+### M4-N001 — N-doped lutetium hydride near-room-temperature claim
-+
-+**Original claim:** near-room-temperature superconductivity at near-ambient pressure  
-+**Status:** **DISCONFIRMED / RETRACTED**  
-+**Why:** Nature retracted the report after author and journal concerns over sample provenance, measurements, processing and resistance-data reliability; an independent Nature study reported no superconductivity above 2 K over 0.4–40.1 GPa in a closely matched nitrogen-doped lutetium hydride.  
-+**Use:** evidence-process negative control.
-+
-+Sources: Nature retraction DOI `10.1038/s41586-023-06774-2`; independent negative result DOI `10.1038/s41586-023-06162-w`.
-+
-+### M4-N002 — carbonaceous sulfur hydride room-temperature claim
-+
-+**Original claim:** ~287.7 K at extreme pressure  
-+**Status:** **RETRACTED**  
-+**Why:** Nature retracted the paper after concluding that non-standard, insufficiently documented background subtraction undermined confidence in the magnetic-susceptibility evidence.  
-+**Use:** raw-data/provenance and analysis-pipeline negative control.
-+
-+Source: Nature retraction DOI `10.1038/s41586-022-05294-9`.
-+
-+### M4-N003 — LK-99
-+
-+**Original claim:** room-temperature, ambient-pressure superconductivity  
-+**Status:** **DISCONFIRMED**  
-+**Why:** independent replication/material-characterization work did not support superconductivity; impurity/ferromagnetic explanations accounted for the headline signatures.  
-+**Use:** reminder that levitation-like behaviour and resistance anomalies are not sufficient evidence.
-+
-+Claim preprints: arXiv `2307.12008`, `2307.12037`. Replication record should be linked to primary negative studies as the map expands.
-+
-+## Working hypotheses created by the map
-+
-+### M4-H1 — controlled metastability is a better search axis than equilibrium stability alone
-+
-+> Among ambient-pressure conventional candidates, high predicted/retained Tc will correlate with a controlled metastability metric more strongly than with equilibrium thermodynamic stability alone.
-+
-+Falsification path:
-+
-+- build a cross-family dataset containing Tc, distance-to-hull/free-energy proxy, synthesis pressure, decompression route, kinetic/dynamic stability, strain and retention temperature;
-+- compare predictive models with and without metastability descriptors using leave-family-out validation;
-+- reject H1 if metastability descriptors do not improve out-of-family prediction.
-+
-+### M4-H2 — stabilization route is transferable
-+
-+> Structural states that host elevated Tc under pressure can sometimes be retained or recreated at ambient pressure through pressure quenching, epitaxial strain, defect engineering or non-equilibrium growth when the required electronic/structural configuration is metastably accessible.
-+
-+Falsification path:
-+
-+- define structural/electronic descriptors before selecting target materials;
-+- predict which high-pressure states are retainable/recreatable;
-+- evaluate prospectively rather than retrospectively explaining successes.
-+
-+### M4-H3 — evidence quality must be a separate optimization objective from Tc
-+
-+> A candidate-selection system that optimizes `expected useful Tc × probability of replication × ambient stability` will outperform one that ranks by claimed/predicted Tc alone.
-+
-+This is partly methodological and can be evaluated retrospectively against historical failed claims and prospectively against new candidates.
-+
-+## Next branch
-+
-+**M4-002 should operationalize H1 first.** It is the cheapest machine-side experiment and directly tests whether the most interesting current evidence — pressure-quenching, strained nickelates and metastable hydride predictions — shares a measurable stabilization principle.
-+
-+No synthesis is recommended from this map alone.
+- calculate decomposition/metastability barriers and finite-temperature survival, not only phonons/Tc;
+- only after independent theory agreement should synthesis planning become active.
+
+Primary source: Dangić et al., Computational Materials Today (2025), DOI `10.1016/j.commt.2025.100043`.
+
+### M4-C005 — Mg2XH6 (X = Rh, Ir, Pd, Pt) hydride family
+
+**Predicted ambient-pressure Tc:** roughly **45–80 K**, with higher values proposed under suitable doping  
+**Evidence:** high-throughput + first-principles prediction; no experimental superconductivity counted  
+**Critical limitation:** synthesis/thermodynamic accessibility of high-Tc phases  
+**Status:** **WATCH THEORY FAMILY**
+
+Primary source: npj Computational Materials (2024), DOI `10.1038/s41524-024-01214-9`.
+
+### M4-C006 — thermodynamically stable GNoME hydrides
+
+**Purpose:** stability control, not temperature leader  
+**2026 result:** systematic search of stable cubic hydrides found modest Tc values; the strongest candidate, LiZrH6Ru, falls dramatically below the ~100 K metastable predictions when treated with more demanding Coulomb calculations  
+**Status:** **ACTIVE NEGATIVE/TRADE-OFF CONTROL**
+
+Why it matters: the dataset strengthens the working hypothesis that **high conventional Tc at ambient pressure is entangled with metastability**, so searching only the equilibrium convex hull may systematically miss the interesting region.
+
+Primary source: Sanna et al., Communications Physics (2026), DOI `10.1038/s42005-026-02552-4`.
+
+## High-pressure source states — not ambient-pressure successes
+
+### M4-R001 — LaH10
+
+**Observed Tc:** ~**250 K** near **170 GPa**  
+**Status:** **SOURCE-STATE RESERVOIR, NOT AN AMBIENT CANDIDATE RESULT**
+
+Why it matters: it proves that conventional electron-phonon systems can reach near-room-temperature Tc, but pressure removal/stability is the unsolved problem.
+
+Primary source: Drozdov et al., Nature (2019), DOI `10.1038/s41586-019-1201-8`.
+
+### M4-R002 — H3S
+
+**Observed Tc:** **203 K** near **155 GPa**  
+**Evidence:** zero resistance, field-dependent transition, isotope effect, and magnetic-susceptibility measurements at the superconducting transition; later diffraction work characterized the superconducting H3S phase.  
+**Status:** **SOURCE-STATE RESERVOIR, NOT AN AMBIENT CANDIDATE RESULT**
+
+Primary superconductivity source: Drozdov et al., Nature (2015), DOI `10.1038/nature14964`.  
+Structure/mechanism source: Nature (2016), DOI `10.1038/nature17175`.
+
+## Negative controls / failed-claim registry
+
+These stay in the map permanently. Deletion would create survivorship bias.
+
+### M4-N001 — N-doped lutetium hydride near-room-temperature claim
+
+**Original claim:** near-room-temperature superconductivity at near-ambient pressure  
+**Status:** **DISCONFIRMED / RETRACTED**  
+**Why:** Nature retracted the report after author and journal concerns over sample provenance, measurements, processing and resistance-data reliability; an independent Nature study reported no superconductivity above 2 K over 0.4–40.1 GPa in a closely matched nitrogen-doped lutetium hydride.  
+**Use:** evidence-process negative control.
+
+Sources: Nature retraction DOI `10.1038/s41586-023-06774-2`; independent negative result DOI `10.1038/s41586-023-06162-w`.
+
+### M4-N002 — carbonaceous sulfur hydride room-temperature claim
+
+**Original claim:** ~287.7 K at extreme pressure  
+**Status:** **RETRACTED**  
+**Why:** Nature retracted the paper after concluding that non-standard, insufficiently documented background subtraction undermined confidence in the magnetic-susceptibility evidence.  
+**Use:** raw-data/provenance and analysis-pipeline negative control.
+
+Source: Nature retraction DOI `10.1038/s41586-022-05294-9`.
+
+### M4-N003 — LK-99
+
+**Original claim:** room-temperature, ambient-pressure superconductivity  
+**Status:** **DISCONFIRMED**  
+**Why:** independent replication/material-characterization work did not support superconductivity; impurity/ferromagnetic explanations accounted for the headline signatures.  
+**Use:** reminder that levitation-like behaviour and resistance anomalies are not sufficient evidence.
+
+Claim preprints: arXiv `2307.12008`, `2307.12037`. Replication record should be linked to primary negative studies as the map expands.
+
+## Working hypotheses created by the map
+
+### M4-H1 — controlled metastability is a better search axis than equilibrium stability alone
+
+> Among ambient-pressure conventional candidates, high predicted/retained Tc will correlate with a controlled metastability metric more strongly than with equilibrium thermodynamic stability alone.
+
+Falsification path:
+
+- build a cross-family dataset containing Tc, distance-to-hull/free-energy proxy, synthesis pressure, decompression route, kinetic/dynamic stability, strain and retention temperature;
+- compare predictive models with and without metastability descriptors using leave-family-out validation;
+- reject H1 if metastability descriptors do not improve out-of-family prediction.
+
+### M4-H2 — stabilization route is transferable
+
+> Structural states that host elevated Tc under pressure can sometimes be retained or recreated at ambient pressure through pressure quenching, epitaxial strain, defect engineering or non-equilibrium growth when the required electronic/structural configuration is metastably accessible.
+
+Falsification path:
+
+- define structural/electronic descriptors before selecting target materials;
+- predict which high-pressure states are retainable/recreatable;
+- evaluate prospectively rather than retrospectively explaining successes.
+
+### M4-H3 — evidence quality must be a separate optimization objective from Tc
+
+> A candidate-selection system that optimizes `expected useful Tc × probability of replication × ambient stability` will outperform one that ranks by claimed/predicted Tc alone.
+
+This is partly methodological and can be evaluated retrospectively against historical failed claims and prospectively against new candidates.
+
+## Next branch
+
+**M4-002 should operationalize H1 first.** It is the cheapest machine-side experiment and directly tests whether the most interesting current evidence — pressure-quenching, strained nickelates and metastable hydride predictions — shares a measurable stabilization principle.
+
+No synthesis is recommended from this map alone.

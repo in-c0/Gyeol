@@ -17,15 +17,16 @@ If the event-first gate cannot work on this proxy, buying hardware does not resc
 
 ## Dataset slice
 
-Start deterministic and small before scaling:
+Use a deterministic slice before any model tuning:
 
-- 5 participants
-- 2 videos/participant
-- up to 10 minutes/video
+- participants `P01` through `P05`
+- for each participant, select the first two available videos by lexicographic `video_id`
+- use the first 10 minutes of each selected video, or the full video if shorter
 - preserve untrimmed temporal context
 - use official `start_timestamp` / `stop_timestamp` action boundaries as positive task-relevant intervals
+- if a selected video is unavailable/corrupt, record the exclusion before substitution and take the next lexicographic video for that participant
 
-Record exact participant/video IDs in the result artifact before model tuning.
+The final exact video IDs and any exclusions must be committed to the result artifact before gate parameters are tuned.
 
 ## Inputs
 
@@ -50,6 +51,12 @@ Wake if a normalized weighted score exceeds threshold.
 
 This deliberately tests whether simple sparse dynamics contain enough signal before introducing a neural classifier.
 
+## Wake-state definition
+
+A gate trigger wakes the downstream RGB path for **1.0 second**. Any trigger during that interval extends the awake interval to 1.0 second after the most recent trigger.
+
+This fixed hold time defines awake duty cycle and the downstream RGB data-movement proxy.
+
 ## Baseline
 
 `always-awake RGB`: all time windows are sent to downstream RGB perception.
@@ -57,26 +64,28 @@ This deliberately tests whether simple sparse dynamics contain enough signal bef
 ## Metrics
 
 - **important-event recall:** proportion of annotated action-onset windows causing a wake within tolerance
-- **false wake rate:** wakes/hour outside annotated action windows
-- **awake duty cycle:** fraction of wall-clock time requiring downstream RGB perception
-- **data-movement proxy:** candidate downstream RGB bytes / always-awake RGB bytes
-- **wake latency:** delay from annotated action onset to wake
+- **false wake rate:** triggers/hour outside annotated action intervals and outside the 250 ms onset-tolerance window
+- **awake duty cycle:** fraction of wall-clock time in the fixed wake state
+- **data-movement proxy:** awake duty cycle × always-awake downstream RGB bytes
+- **wake latency:** delay from annotated action onset to first gate trigger
 
 ## Pre-registered thresholds
 
-B-H1a passes this proxy stage only if:
+B-H1a passes this proxy stage only if the held-out set satisfies all of:
 
 - important-event recall >=95%
 - median wake latency <=250 ms
 - awake duty cycle <=50%
-- false wake bound is reported; no post-hoc threshold selection using held-out videos
+- false wake rate <=60 triggers/hour
 
 A later run should target <=20% duty cycle, but that is not required for the first falsification test.
 
 ## Split discipline
 
-- tuning: first video per participant
-- held-out evaluation: second video per participant
+For each participant:
+
+- tuning: first selected video
+- held-out evaluation: second selected video
 - threshold chosen once on tuning set
 - no held-out threshold tuning
 
@@ -84,6 +93,7 @@ A later run should target <=20% duty cycle, but that is not required for the fir
 
 - **low recall, low duty cycle:** sparse changes miss semantically important slow/static actions
 - **high recall, high duty cycle:** event gate does not meaningfully save downstream work
+- **false wakes >60/hour:** gate is too noisy for the current 1-second hold policy even if recall is high
 - **good proxy result:** advance to real event-camera hardware; do not claim energy savings yet
 
 ## Next evidence level

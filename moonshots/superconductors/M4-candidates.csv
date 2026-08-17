@@ -1,0 +1,12 @@
+id,candidate,category,pressure_gpa,tc_onset_k,tc_zero_k,tc_magnetic_k,tc_predicted_k,transport_evidence,magnetic_evidence,structure_evidence,internal_repeat,independent_specific_replication,phase_room_temp_stable,status,validated_room_temp_ambient,primary_source
+M4-C001,Hg1223 pressure-quenched metastable phase,EXPERIMENT_AMBIENT,0,151,,,,yes,yes,yes,yes,no,no,ACTIVE,false,10.1073/pnas.2536178123
+M4-C002,"(La,Pr)3Ni2O7 strained film",EXPERIMENT_AMBIENT,0,63,37,23,,yes,yes,yes,yes,no,unknown,ACTIVE,false,10.1093/nsr/nwag151
+M4-C003,hole-doped Sm-family infinite-layer nickelate film,EXPERIMENT_AMBIENT,0,40,31,,,yes,yes,yes,yes,no,unknown,WATCH,false,10.1038/s41586-025-08893-4
+M4-C004,RbPH3 metastable hydride,THEORY_AMBIENT,0,,,,100,no,no,no,no,no,predicted,ACTIVE_THEORY,false,10.1016/j.commt.2025.100043
+M4-C005,Mg2XH6 hydride family,THEORY_AMBIENT,0,,,,80,no,no,no,no,no,unknown,WATCH_THEORY,false,10.1038/s41524-024-01214-9
+M4-C006,LiZrH6Ru stable hydride control,THEORY_AMBIENT,0,,,,14.2,no,no,no,no,no,predicted,CONTROL,false,10.1038/s42005-026-02552-4
+M4-R001,LaH10,HIGH_PRESSURE_RESERVOIR,170,250,,,,yes,no,yes,yes,yes,no,RESERVOIR,false,10.1038/s41586-019-1201-8
+M4-R002,H3S,HIGH_PRESSURE_RESERVOIR,155,203,,,,yes,yes,yes,yes,yes,no,RESERVOIR,false,10.1038/nature14964
+M4-N001,N-doped lutetium hydride claimed state,NEGATIVE_CONTROL,1,294,,,,claimed,retracted,retracted,claimed,no,unknown,DISCONFIRMED,false,10.1038/s41586-023-06774-2
+M4-N002,carbonaceous sulfur hydride claimed state,NEGATIVE_CONTROL,267,287.7,,,,claimed,retracted,uncertain,claimed,no,no,RETRACTED,false,10.1038/s41586-022-05294-9
+M4-N003,LK-99 claimed state,NEGATIVE_CONTROL,0,400,,,,claimed,no,yes,claimed,no,yes,DISCONFIRMED,false,arXiv:2307.12008

@@ -56,7 +56,7 @@ class SelectEpicManifestTests(unittest.TestCase):
         self.assertEqual(expected, actual)
         self.assertEqual(10, len(manifest["videos"]))
         self.assertEqual(600, manifest["selection_rule"]["clip_max_duration_s"])
-        self.assertEqual(40, manifest["source"]["rows"])
+        self.assertEqual(20, manifest["source"]["rows"])
         self.assertEqual(64, len(manifest["source"]["sha256"]))
 
     def test_fails_closed_when_participant_has_too_few_videos(self):

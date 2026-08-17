@@ -35,6 +35,13 @@ REQUIRED_COLUMNS = {
 TRUE_VALUES = {"true", "yes"}
 FALSE_VALUES = {"false", "no"}
 
+# Deliberately conservative evidence-gate definitions, not universal physics terms.
+# 0.001 GPa = 1 MPa (~10 bar): intentionally looser than atmospheric pressure
+# to tolerate metadata/experimental reporting while excluding genuinely pressurized states.
+AMBIENT_PRESSURE_MAX_GPA = 0.001
+# 293.15 K = 20 °C: lower bound for the repository's "room-temperature" validation label.
+ROOM_TEMPERATURE_MIN_K = 293.15
+
 
 def text(row: dict[str, str], key: str) -> str:
     return (row.get(key) or "").strip()
@@ -48,10 +55,6 @@ def parse_float(row: dict[str, str], key: str) -> float | None:
         return float(value)
     except ValueError as exc:
         raise ValueError(f"{text(row, 'id')}: {key} must be numeric or blank, got {value!r}") from exc
-
-
-def is_true(row: dict[str, str], key: str) -> bool:
-    return text(row, key).lower() in TRUE_VALUES
 
 
 def validate_registry(path: Path) -> list[str]:
@@ -106,13 +109,21 @@ def validate_registry(path: Path) -> list[str]:
             errors.append(f"{prefix}: disconfirmed/retracted candidate cannot be validated")
 
         if validated in TRUE_VALUES:
-            # Deliberately strict merge gate. 'Room temperature' is taken as >=273.15 K.
-            if pressure is None or pressure > 0.1:
-                errors.append(f"{prefix}: validated ambient state requires pressure <=0.1 GPa")
-            if tc_zero is None or tc_zero < 273.15:
-                errors.append(f"{prefix}: validated room-temperature state requires tc_zero_k >=273.15")
-            if tc_magnetic is None or tc_magnetic < 273.15:
-                errors.append(f"{prefix}: validated room-temperature state requires tc_magnetic_k >=273.15")
+            if pressure is None or pressure > AMBIENT_PRESSURE_MAX_GPA:
+                errors.append(
+                    f"{prefix}: validated ambient state requires pressure "
+                    f"<={AMBIENT_PRESSURE_MAX_GPA} GPa"
+                )
+            if tc_zero is None or tc_zero < ROOM_TEMPERATURE_MIN_K:
+                errors.append(
+                    f"{prefix}: validated room-temperature state requires tc_zero_k "
+                    f">={ROOM_TEMPERATURE_MIN_K}"
+                )
+            if tc_magnetic is None or tc_magnetic < ROOM_TEMPERATURE_MIN_K:
+                errors.append(
+                    f"{prefix}: validated room-temperature state requires tc_magnetic_k "
+                    f">={ROOM_TEMPERATURE_MIN_K}"
+                )
             if text(row, "transport_evidence").lower() != "yes":
                 errors.append(f"{prefix}: validated state requires transport evidence")
             if text(row, "magnetic_evidence").lower() != "yes":
